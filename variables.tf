@@ -53,6 +53,11 @@ variable "http_proxy" {
   description = "IP[:PORT] - address and optional port of HTTP proxy to be used to download packages"
 }
 
+variable "create_kinesis_vpc_endpoint" {
+  description = "Create a VPC endpoint for Kinesis data streams in the provided VPC"
+  default     = false
+}
+
 variable "logging_lambda_iam_policy_arns" {
   description = "List of existing IAM policies that will be attached to lambda function for shipping cluster logs"
   type        = "list"

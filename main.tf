@@ -31,13 +31,16 @@ module "kubernetes_cluster_operations" {
 module "logging_core_operations" {
   source = "github.com/kentrikos/terraform-aws-logging-core?ref=v0.1-alpha"
 
-  vpc_id                    = "${var.vpc_id}"
-  region                    = "${var.region}"
-  subnet_ids                = "${var.k8s_private_subnets}"
-  kinesis_stream_name       = "logging.${local.cluster_name}"
-  kinesis_iam_policy_arns   = "${var.logging_kinesis_iam_policy_arns}"
-  kinesis_trusted_role_arns = "${var.logging_kinesis_trusted_role_arns}"
-  lambda_iam_policy_arns    = "${var.logging_lambda_iam_policy_arns}"
+  vpc_id                      = "${var.vpc_id}"
+  region                      = "${var.region}"
+  create_kinesis_vpc_endpoint = "${var.create_kinesis_vpc_endpoint}"
+  subnet_ids                  = "${var.k8s_private_subnets}"
+  kinesis_stream_name         = "logging.${local.cluster_name}"
+  kinesis_role_name           = "logging.${local.cluster_name}"
+  kinesis_iam_policy_arns     = "${var.logging_kinesis_iam_policy_arns}"
+  kinesis_trusted_role_arns   = "${var.logging_kinesis_trusted_role_arns}"
+  lambda_iam_policy_arns      = "${var.logging_lambda_iam_policy_arns}"
+  elasticsearch_domain_name   = "${var.product_domain_name}-${var.environment_type}-ops"
 
   tags = "${local.common_tags}"
 }
