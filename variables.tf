@@ -53,6 +53,21 @@ variable "http_proxy" {
   description = "IP[:PORT] - address and optional port of HTTP proxy to be used to download packages"
 }
 
+variable "logging_lambda_iam_policy_arns" {
+  description = "List of existing IAM policies that will be attached to lambda function for shipping cluster logs"
+  type        = "list"
+}
+
+variable "logging_kinesis_iam_policy_arns" {
+  description = "List of existing IAM policies that will allow access to the Kinesis stream for logging"
+  type        = "list"
+}
+
+variable "logging_kinesis_trusted_role_arns" {
+  description = "List of existing IAM roles that will be trusted by the Kinesis IAM role for logging"
+  type        = "list"
+}
+
 #variable "enable_logging" {
 #  default = true
 #}
