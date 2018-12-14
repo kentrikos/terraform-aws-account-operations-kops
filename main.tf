@@ -36,7 +36,7 @@ module "logging_core_operations" {
   create_kinesis_vpc_endpoint = "${var.create_kinesis_vpc_endpoint}"
   subnet_ids                  = "${var.k8s_private_subnets}"
   kinesis_stream_name         = "logging.${local.cluster_name}"
-  kinesis_role_name           = "logging.${local.cluster_name}"
+  kinesis_iam_role_name       = "logging.${local.cluster_name}"
   kinesis_iam_policy_arns     = "${var.logging_kinesis_iam_policy_arns}"
   kinesis_trusted_role_arns   = "${var.logging_kinesis_trusted_role_arns}"
   lambda_iam_policy_arns      = "${var.logging_lambda_iam_policy_arns}"
