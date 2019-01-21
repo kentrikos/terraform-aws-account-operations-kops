@@ -12,7 +12,7 @@ locals {
 module "kubernetes_cluster_operations" {
   source = "github.com/kentrikos/terraform-aws-kops?ref=multi_deployment"
 
-  cluster_name_prefix = "${var.product_domain_name}-${var.environment_type}-ops"
+  cluster_name_prefix = "${var.region}-${var.product_domain_name}-${var.environment_type}-ops"
   region              = "${var.region}"
   vpc_id              = "${var.vpc_id}"
   azs                 = "${join(",", var.azs)}"
