@@ -10,7 +10,7 @@ locals {
 
 # Kubernetes cluster:
 module "kubernetes_cluster_operations" {
-  source = "github.com/kentrikos/terraform-aws-kops"
+  source = "github.com/kentrikos/terraform-aws-kops?ref=error-checks-2"
 
   cluster_name_prefix = "${var.product_domain_name}-${var.environment_type}-ops"
   region              = "${var.region}"
