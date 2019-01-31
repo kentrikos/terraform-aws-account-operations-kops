@@ -31,5 +31,5 @@ module "kubernetes_cluster_operations" {
 
 # ECR registry for customized JenkinsX image:
 resource "aws_ecr_repository" "jenkins-x-image" {
-  name = "jenkins-x-image"
+  name = "${var.product_domain_name}-${var.environment_type}-jenkins-x-image"
 }
