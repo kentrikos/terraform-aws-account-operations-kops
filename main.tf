@@ -17,8 +17,8 @@ locals {
   "arn:aws:iam::${var.operations_aws_account_number}:policy/KENTRIKOS_${var.region}.${var.product_domain_name}-${var.environment_type}_AssumeCrossAccount"
   )}"
 
-  masters_iam_policies_arns = "${length(element(concat(var.k8s_masters_iam_policies_arns,list("")),0)) != 0 ? var.k8s_masters_iam_policies_arns : local.local_nodes_policies_arns_list}"
-  nodes_iam_policies_arns   = "${length(element(concat(var.k8s_masters_iam_policies_arns,list("")),0)) != 0 ? var.k8s_masters_iam_policies_arns : local.local_nodes_policies_arns_list}"
+  masters_iam_policies_arns = "${length(join("",concat(var.k8s_masters_iam_policies_arns,list("")))) != 0 ? var.k8s_masters_iam_policies_arns : local.local_nodes_policies_arns_list}"
+  nodes_iam_policies_arns   = "${length(join("",concat(var.k8s_masters_iam_policies_arns,list("")))) != 0 ? var.k8s_masters_iam_policies_arns : local.local_nodes_policies_arns_list}"
 
   //  masters_iam_policies_arns = "${length(var.k8s_masters_iam_policies_arns) != 0 ? var.k8s_masters_iam_policies_arns : data.terraform_remote_state.iam.master_policies}"
   //  nodes_iam_policies_arns = "${length(var.k8s_masters_iam_policies_arns) != 0 ? var.k8s_masters_iam_policies_arns : data.terraform_remote_state.iam.master_policies}"
