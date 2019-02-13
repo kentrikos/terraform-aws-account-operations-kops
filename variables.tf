@@ -6,8 +6,8 @@ variable "environment_type" {
   description = "Type of environment (e.g. test, int, e2e, prod)"
 }
 
-variable "application_aws_account_number" {
-  description = "AWS application account number (without hyphens)"
+variable "operations_aws_account_number" {
+  description = "AWS operation account number (without hyphens)"
 }
 
 variable "vpc_id" {
