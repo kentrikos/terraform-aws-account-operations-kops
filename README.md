@@ -76,8 +76,8 @@ module "operations" {
 | k8s\_node\_count | Number of worker nodes in Kubernetes cluster | string | `"3"` | no |
 | k8s\_master\_instance\_type | Instance type (size) for master nodes | string | `"m4.large"` | no |
 | k8s\_node\_instance\_type | Instance type (size) for worker nodes | string | `"m4.large"` | no |
-| k8s\_masters\_iam\_policies\_arns | List of existing IAM policies that will be attached to instance profile for master nodes (EC2 instances) | list | n/a | yes |
-| k8s\_nodes\_iam\_policies\_arns | List of existing IAM policies that will be attached to instance profile for worker nodes (EC2 instances) | list | n/a | yes |
+| k8s\_masters\_iam\_policies\_arns | (Optional) List of existing IAM policies that will be attached to instance profile for master nodes (EC2 instances) | list | n/a | no |
+| k8s\_nodes\_iam\_policies\_arns |(Optional) List of existing IAM policies that will be attached to instance profile for worker nodes (EC2 instances) | list | n/a | no |
 | http\_proxy | IP[:PORT] - address and optional port of HTTP proxy to be used to download packages | string | n/a | yes |
 | k8s\_aws\_ssh\_keypair\_name | Optional name of existing SSH keypair on AWS account, to be used for cluster instances (will be generated if not specified) | string | `""` | no |
 | k8s_linux_distro | Linux distribution for K8s cluster instances (supported values: debian, amzn2) | string | `debian` | no |

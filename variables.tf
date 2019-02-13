@@ -6,6 +6,10 @@ variable "environment_type" {
   description = "Type of environment (e.g. test, int, e2e, prod)"
 }
 
+variable "application_aws_account_number" {
+  description = "AWS application account number (without hyphens)"
+}
+
 variable "vpc_id" {
   description = "ID of existing VPC where cluster will be deployed"
 }
@@ -40,13 +44,15 @@ variable "k8s_node_instance_type" {
 }
 
 variable "k8s_masters_iam_policies_arns" {
-  description = "List of existing IAM policies that will be attached to instance profile for master nodes (EC2 instances)"
+  description = "(Optiona) List of existing IAM policies that will be attached to instance profile for master nodes (EC2 instances)"
   type        = "list"
+  default     = []
 }
 
 variable "k8s_nodes_iam_policies_arns" {
-  description = "List of existing IAM policies that will be attached to instance profile for worker nodes (EC2 instances)"
+  description = "(Optiona) List of existing IAM policies that will be attached to instance profile for worker nodes (EC2 instances)"
   type        = "list"
+  default     = []
 }
 
 variable "k8s_linux_distro" {
