@@ -6,10 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- List of arns for nodes and masters could be empty and will be genereted internaly
 - Cluster name contain region
+- ECR cluster name contain region 
 
-## 0.1.0
+## [0.1.0] - 2019-02-05
 ### Added
 - Pining versions
 - This CHANGELOG file
