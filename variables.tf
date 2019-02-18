@@ -50,7 +50,7 @@ variable "k8s_masters_iam_policies_arns" {
 }
 
 variable "k8s_nodes_iam_policies_arns" {
-  description = "(Optiona) List of existing IAM policies that will be attached to instance profile for worker nodes (EC2 instances)"
+  description = "(Optional) List of existing IAM policies that will be attached to instance profile for worker nodes (EC2 instances)"
   type        = "list"
   default     = []
 }
