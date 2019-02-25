@@ -10,9 +10,9 @@ locals {
 
 # Kubernetes cluster:
 module "kubernetes_cluster_operations" {
-  source = "github.com/kentrikos/terraform-aws-kops?ref=0.1.0"
+  source = "github.com/kentrikos/terraform-aws-kops?ref=multi_deployment"
 
-  cluster_name_prefix = "${var.product_domain_name}-${var.environment_type}-ops"
+  cluster_name_prefix = "${var.region}-${var.product_domain_name}-${var.environment_type}-ops"
   region              = "${var.region}"
   vpc_id              = "${var.vpc_id}"
   azs                 = "${join(",", var.azs)}"
@@ -32,5 +32,5 @@ module "kubernetes_cluster_operations" {
 
 # ECR registry for customized JenkinsX image:
 resource "aws_ecr_repository" "jenkins-x-image" {
-  name = "jenkins-x-image"
+  name = "${var.product_domain_name}-${var.environment_type}-jenkins-x-image"
 }
