@@ -2,9 +2,10 @@ locals {
   cluster_name = "${var.region}-${var.product_domain_name}-${var.environment_type}-ops"
 
   common_tags = {
-    ProjectName = "${var.product_domain_name}"
-    Environment = "${var.environment_type}"
-    Cluster     = "${local.cluster_name}"
+    Terraform       = true
+    EnvironmentType = "${var.product_domain_name}"
+    EnvironmentType = "${var.environment_type}"
+    Cluster         = "${local.cluster_name}"
   }
 }
 
