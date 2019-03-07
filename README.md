@@ -1,11 +1,11 @@
-# A Terraform module to create "operations" type of environment.
+# A Terraform module to create "operations" type of environment with kops-managed Kubernetes
 
 
 This module will create an environment suitable for "operations" type of AWS account.
 Most important elements of the environment:
 
 * VPC (not created by this module, must exist apriori as it can be only created with a portal)
-* Kubernetes cluster (to be used for CI/CD, monitoring, etc.)
+* Kubernetes cluster (to be used for CI/CD, monitoring, etc.), deployed using kops
 * ECR Docker registry
 * VPC Endpoint - kinesis-streams service (Interface type)
 * kinesis stream (logging)
